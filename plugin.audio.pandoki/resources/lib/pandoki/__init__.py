@@ -1,1 +1,1 @@
-from pandoki import Val, Prop, Pandoki
+from resources.lib.pandoki.pandoki import Val as Val, Prop as Prop, Pandoki as Pandoki

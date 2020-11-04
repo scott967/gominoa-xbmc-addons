@@ -39,7 +39,7 @@ is_py3 = (_ver[0] == 3)
 
 if is_py2:
 	from StringIO import StringIO
-	from urllib2 import HTTPPasswordMgr, HTTPDigestAuthHandler, Request,\
+	from urllib.request import HTTPPasswordMgr, HTTPDigestAuthHandler, Request,\
 						HTTPHandler, build_opener, HTTPError, URLError,\
 						build_opener
 	from httplib import BadStatusLine, HTTPException

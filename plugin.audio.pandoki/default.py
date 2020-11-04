@@ -1,11 +1,11 @@
-import os, sys, time, urlparse
-import xbmc, xbmcaddon, xbmcgui
+import os, sys, time, urllib.parse as urlparse
+import xbmc, xbmcaddon, xbmcgui, xbmcvfs
 
-path = xbmc.translatePath(xbmcaddon.Addon().getAddonInfo('path').decode('utf-8'))
-path = xbmc.translatePath(os.path.join(path, 'resources', 'lib'))
+path = xbmcvfs.translatePath(xbmcaddon.Addon().getAddonInfo('path'))
+path = xbmcvfs.translatePath(os.path.join(path, 'resources', 'lib'))
 sys.path.append(path)
 
-from pandoki import *
+from resources.lib.pandoki import *
 
 def Wait(key, value):
     Prop(key, value)
@@ -13,7 +13,7 @@ def Wait(key, value):
 
     until = time.time() + 15
     while Prop(key) and (time.time() < until):
-        xbmc.sleep(1000)
+        xbmc.Monitor().waitForAbort(1)
 
 
 handle	= sys.argv[1]
